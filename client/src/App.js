@@ -5,7 +5,10 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import { Homepage } from './pages/home/Homepage';
+
+import { Count } from './pages/Shop-list';
+import { Shop } from './pages/Shop';
+import { Homepage } from './pages/Homepage';
 
 
 function App() {
@@ -13,6 +16,8 @@ function App() {
     <BrowserRouter>
       <Routes>
        <Route path="/"element={<Homepage/>}/>
+       <Route path="/shops"element={<Count/>}/>
+       <Route path="/shops/:id"element={<Shop/>}/>
       </Routes>
     </BrowserRouter>
   );
