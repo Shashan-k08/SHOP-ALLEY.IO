@@ -5,9 +5,18 @@ import { faTruckArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { faPumpMedical } from '@fortawesome/free-solid-svg-icons'
 import { faCookie } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-
+import { DateRange } from 'react-date-range';
+import { useState } from 'react'
+import 'react-date-range/dist/styles.css'; // main css file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 export const Header = () => {
+  const [date, setdate] = useState([
+    {
+      startDate: new Date(),
+      endDate: null,
+      key: 'selection'
+    }
+  ]);
   return (
     <div className="header">
       <div className="header-content">
@@ -52,12 +61,19 @@ export const Header = () => {
             <input type="text" placeholder="What you want to buy ?"
               className="header-search-field" />
           </div>
-          
+
           <div className="header-search-content">
             <FontAwesomeIcon icon={faCalendarDay} className="header-icon" />
             <span className="headerSearchText">Delivery time</span>
+            <DateRange
+              editableDateInputs={true}
+              onChange={item => setdate([item.selection])}
+              moveRangeOnFirstSelection={false}
+              ranges={date}
+              className="date"
+            />
           </div>
-          
+
           <div className="header-search-content">
             <FontAwesomeIcon icon={'calendar-day'} className="header-icon" />
             <span className="headerSearchText">2days 3days 4days</span>
