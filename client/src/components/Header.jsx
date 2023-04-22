@@ -7,16 +7,26 @@ import { faCookie } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { DateRange } from 'react-date-range';
 import { useState } from 'react'
-import 'react-date-range/dist/styles.css'; // main css file
-import 'react-date-range/dist/theme/default.css'; // theme css file
+import 'react-date-range/dist/styles.css';
+import 'react-date-range/dist/theme/default.css';
+import { format } from "date-fns"
 export const Header = () => {
+  const [opendate, setopendate] = useState(false);
   const [date, setdate] = useState([
     {
       startDate: new Date(),
-      endDate: null,
+      endDate: new Date(),
       key: 'selection'
     }
   ]);
+  const [daysoption, setdaysoption] = useState(false);
+  const [days, setdays] = useState(
+    {
+      day: 1,
+      time: 0,
+      delay: 1,
+    }
+  )
   return (
     <div className="header">
       <div className="header-content">
@@ -64,25 +74,55 @@ export const Header = () => {
 
           <div className="header-search-content">
             <FontAwesomeIcon icon={faCalendarDay} className="header-icon" />
-            <span className="headerSearchText">Delivery time</span>
-            <DateRange
+            <span onClick={() => setopendate(!opendate)} className="headerSearchText">{`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
+            {opendate && <DateRange
               editableDateInputs={true}
               onChange={item => setdate([item.selection])}
               moveRangeOnFirstSelection={false}
               ranges={date}
               className="date"
-            />
+            />}
           </div>
 
           <div className="header-search-content">
             <FontAwesomeIcon icon={'calendar-day'} className="header-icon" />
-            <span className="headerSearchText">2days 3days 4days</span>
+            <span className="headerSearchText">{`${days.day} days ${days.time} time ${days.delay} delay`}</span>
+            <div className="delivery-time">
+              <div className="optionItem">
+                <span className="optionText">Days</span>
+                <div className="optionCounter">
+                  <div className="optionCounterButton">-</div>
+                  <div className="optionCounterNumber">1</div>
+                  <div className="optionCounterButton">+</div>
+                </div>
+              </div>
+
+
+              <div className="optionItem">
+                <span className="optionText">Days</span>
+                <div className="optionCounter">
+                  <div className="optionCounterButton">-</div>
+                  <div className="optionCounterNumber">1</div>
+                  <div className="optionCounterButton">+</div>
+                </div>
+              </div>
+              <div className="optionItem">
+                <span className="optionText">Days</span>
+                <div className="optionCounter">
+                  <div className="optionCounterButton">-</div>
+                  <div className="optionCounterNumber">1</div>
+                  <div className="optionCounterButton">+</div>
+                </div>
+              </div>
+            </div>
           </div>
 
+
         </div>
+
       </div>
 
+    </div >
 
-    </div>
   )
 }
