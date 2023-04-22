@@ -27,6 +27,14 @@ export const Header = () => {
       delay: 1,
     }
   )
+  const handleOption=(name,operation)=>{
+     setdays((prev)=>{
+      return{
+        ...prev,
+        [name]:operation ==="i"?days[name]+1:days[name]-1,
+      };
+     });
+  }
   return (
     <div className="header">
       <div className="header-content">
@@ -91,27 +99,27 @@ export const Header = () => {
               <div className="optionItem">
                 <span className="optionText">Days</span>
                 <div className="optionCounter">
-                  <div className="optionCounterButton">-</div>
+                  <button className="optionCounterButton " onClick={()=>(handleOption("day","d"))}>-</button>
                   <div className="optionCounterNumber">1</div>
-                  <div className="optionCounterButton">+</div>
+                  <button className="optionCounterButton" onClick={()=>(handleOption("day","i"))}>+</button>
                 </div>
               </div>
 
 
               <div className="optionItem">
-                <span className="optionText">Days</span>
+                <span className="optionText">Time</span>
                 <div className="optionCounter">
-                  <div className="optionCounterButton">-</div>
+                  <button className="optionCounterButton" onClick={()=>(handleOption("time","d"))}>-</button>
                   <div className="optionCounterNumber">1</div>
-                  <div className="optionCounterButton">+</div>
+                  <button className="optionCounterButton" onClick={()=>(handleOption("time","i"))}>+</button>
                 </div>
               </div>
               <div className="optionItem">
-                <span className="optionText">Days</span>
+                <span className="optionText">Delay</span>
                 <div className="optionCounter">
-                  <div className="optionCounterButton">-</div>
+                  <button className="optionCounterButton" onClick={()=>(handleOption("delay","d"))}>-</button>
                   <div className="optionCounterNumber">1</div>
-                  <div className="optionCounterButton">+</div>
+                  <button className="optionCounterButton" onClick={()=>(handleOption("delay","i"))}>+</button>
                 </div>
               </div>
             </div>
