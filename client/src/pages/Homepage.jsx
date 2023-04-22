@@ -10,6 +10,7 @@ export const Homepage = () => {
         <Header/>
         <div className="homeContainer">
           <Display/>
+          <h1 className="homeTitle">Browse By Shop type</h1>
         </div>
     </div>
 

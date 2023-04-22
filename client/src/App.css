@@ -204,6 +204,13 @@
 
 .display-Titles{
   position: absolute;
-  bottom: 20px;
-  left: 20px;
+  bottom: 0px;
+  align-items: center;
+  color: #323737d4;
+  left: 1rem;
+  font-size: 0.9rem;
+  background-color: white;
+  display: flex;
+  height: 2rem;
+  opacity: 0.9;
 }
