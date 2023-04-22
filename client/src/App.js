@@ -6,7 +6,7 @@ import {
   Route,
 } from "react-router-dom";
 
-import { Count } from './pages/Shop-list';
+import List from "./pages/List.jsx"
 import { Shop } from './pages/Shop';
 import { Homepage } from './pages/Homepage';
 
@@ -16,7 +16,7 @@ function App() {
     <BrowserRouter>
       <Routes>
        <Route path="/"element={<Homepage/>}/>
-       <Route path="/shops"element={<Count/>}/>
+       <Route path="/shops"element={<List/>}/>
        <Route path="/shops/:id"element={<Shop/>}/>
       </Routes>
     </BrowserRouter>
