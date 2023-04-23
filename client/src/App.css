@@ -244,3 +244,49 @@
   font-size: 14px;
   font-weight: 300;
 }
+.fShop {
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.fShopItem{
+  flex: 1;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.fShopImg{
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.fShopName{
+  color: #333;
+  font-weight: bold;
+}
+
+.fShopCity{
+  font-weight: 300;
+}
+
+.fShopPrice{
+  font-weight: 500;
+}
+
+.fShopRating>button{
+  background-color: #003580;
+  color: white;
+  border: none;
+  padding: 3px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.fShopRating>span{
+  font-size: 14px;
+}
