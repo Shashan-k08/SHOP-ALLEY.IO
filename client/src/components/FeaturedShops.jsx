@@ -35,6 +35,16 @@ const FeaturedShops = () => {
           <span>Good</span>
         </div>
       </div>
+      <div className="fShopItem">
+        <img src='https://cdn.shopify.com/s/files/1/0423/5227/9714/files/31_370x230@2x.png?v=1661779386' alt='' className="fShopImg" />
+        <span className="fShopName"> Stop Stop pvt</span>
+        <span className="fShopCity"> Gurugram</span>
+        <span className="fShopPrice">Buy under $23</span>
+        <div className="fShopRating">
+          <button>8</button>
+          <span>Good</span>
+        </div>
+      </div>
     </div>
   )
 }
