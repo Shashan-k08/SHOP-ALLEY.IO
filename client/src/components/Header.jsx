@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom"
 import { format } from "date-fns"
 export const Header = ({ type }) => {
   const navigate = useNavigate();
+  const [delivery,setdelivery]=useState("");
   const [opendate, setopendate] = useState(false);
   const [date, setdate] = useState([
     {
@@ -38,7 +39,7 @@ export const Header = ({ type }) => {
     });
   }
   const handleSearch = () => {
-    navigate("/shops")
+    navigate("/shops",{state:{delivery,date,days}});
   }
   return (
     <div className="header">
@@ -83,7 +84,7 @@ export const Header = ({ type }) => {
               <div className="header-search-content">
                 <FontAwesomeIcon icon={faShop} className="header-icon" />
                 <input type="text" placeholder="What you want to buy ?"
-                  className="header-search-field" />
+                  className="header-search-field" onChange={(e)=>setdelivery(e.target.value)} />
               </div>
 
               <div className="header-search-content">
