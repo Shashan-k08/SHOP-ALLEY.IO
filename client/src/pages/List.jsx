@@ -20,18 +20,40 @@ const List = () => {
             <h1 className="lsTitle">Search</h1>
             <div className="lsItem">
               <label>Delivery</label>
-              <input placeholder={delivery} type="text" className=""/>
+              <input placeholder={delivery} type="text" className="" />
             </div>
             <div className="lsItem">
               <label>Departure-date</label>
-              <span onClick={()=>setopendate(!opendate)}>{`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
+              <span onClick={() => setopendate(!opendate)}>{`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
               {opendate && <DateRange
-                  editableDateInputs={true}
-                  onChange={item => setdate([item.selection])}
-                 minDate={new Date()}
-                  ranges={date}
-                  
-                />}
+                editableDateInputs={true}
+                onChange={item => setdate([item.selection])}
+                minDate={new Date()}
+                ranges={date}
+
+              />}
+            </div>
+            <div className="lsItem">
+              <label>Options</label>
+              <div className="lsOptionItem">
+                <span className="lsOptionText">
+                  Time <small>in hours</small>
+                </span>
+                <input type="number" min={1} placeholder={days.time} className="lsOptionInput"/>
+              </div>
+              <div className="lsOptionItem">
+                <span className="lsOptionText">
+                  Delivery time <small>in days</small>
+                </span>
+                <input type="number" min={1} placeholder={days.day} className="lsOptionInput"/>
+              </div>
+              <div className="lsOptionItem">
+                <span className="lsOptionText">
+                  Max delay <small>in days</small>
+                </span>
+                <input type="number" min ={0} placeholder={days.delay} className="lsOptionInput"/>
+              </div>
+             
             </div>
           </div>
           <div className="listResult"></div>
