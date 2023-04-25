@@ -5,6 +5,7 @@ import { Navbar } from '../components/Navbar'
 import { DateRange } from 'react-date-range';
 import { useState } from 'react'
 import { format } from 'date-fns'
+import Search from '../components/Search';
 
 const List = () => {
   const location = useLocation();
@@ -39,24 +40,29 @@ const List = () => {
                 <span className="lsOptionText">
                   Time <small>in hours</small>
                 </span>
-                <input type="number" min={1} placeholder={days.time} className="lsOptionInput"/>
+                <input type="number" min={1} placeholder={days.time} className="lsOptionInput" />
               </div>
               <div className="lsOptionItem">
                 <span className="lsOptionText">
                   Delivery time <small>in days</small>
                 </span>
-                <input type="number" min={1} placeholder={days.day} className="lsOptionInput"/>
+                <input type="number" min={1} placeholder={days.day} className="lsOptionInput" />
               </div>
               <div className="lsOptionItem">
                 <span className="lsOptionText">
                   Max delay <small>in days</small>
                 </span>
-                <input type="number" min ={0} placeholder={days.delay} className="lsOptionInput"/>
+                <input type="number" min={0} placeholder={days.delay} className="lsOptionInput" />
               </div>
-             
+
             </div>
+                 <button>Search</button>
           </div>
-          <div className="listResult"></div>
+          <div className="listResult">
+            <Search/>
+            <Search/>
+            <Search/>
+          </div>
         </div>
       </div>
     </div>
