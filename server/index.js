@@ -1,7 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
-
+const authRouter = require("./routes/auth");
 //const router = require('router');
 const connect = async () => {
   try {
@@ -18,9 +18,9 @@ mongoose.connection.on("connected", () => {
   console.log("mongoDb connected");
 });
 
-app.get("/", (req, res) => {
-  res.send("Hello connection");
-});
+// middleware
+
+app.use("/auth", authRouter);
 app.listen(5000, () => {
   connect();
   console.log("Connected to backend!");
