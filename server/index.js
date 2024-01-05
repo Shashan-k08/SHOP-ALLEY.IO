@@ -22,7 +22,7 @@ mongoose.connection.on("connected", () => {
 });
 
 // middleware
-
+app.use(express.json());
 app.use("/auth", authRouter);
 app.use("/shop", shopRouter);
 app.use("/rooms", roomRouter);
